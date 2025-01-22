@@ -24,3 +24,5 @@ frontend/eslint.config.js
 frontend/postcss.config.js
 frontend/tailwind.config.js
 frontend/vite.config.js
+# Ignore node_modules in backend
+/backend/node_modules
