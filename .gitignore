@@ -1,0 +1,26 @@
+# Ignore node_modules in both frontend and backend
+/node_modules
+/frontend/node_modules
+
+# Ignore environment files
+.env
+
+# Ignore build and log files
+/dist
+/logs
+
+# Ignore package-lock.json from both frontend and backend
+/package-lock.json
+/frontend/package-lock.json
+/backend/package-lock.json
+/backend/package.json
+/frontend/package.json
+# Ignore other files you don't want to push
+*.log
+*.env
+# Ignore frontend config files
+frontend/.gitignore
+frontend/eslint.config.js
+frontend/postcss.config.js
+frontend/tailwind.config.js
+frontend/vite.config.js
