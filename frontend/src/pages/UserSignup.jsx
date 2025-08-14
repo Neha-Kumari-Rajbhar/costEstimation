@@ -27,8 +27,9 @@ const UserSignup = () => {
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser);
     if (response.status === 201) {
       const data = response.data;
-      setUser(data.user);
+      
       localStorage.setItem('token', data.token);
+      setUser(data.user);
       navigate('/home');
     }
 
@@ -46,7 +47,7 @@ const UserSignup = () => {
       
       {/* Signup Form */}
       <div className="m-10 relative flex flex-col bg-white bg-opacity-10 backdrop-blur-md shadow-lg rounded-lg overflow-hidden p-6 md:p-10 w-full max-w-lg">
-        <img className="w-24 mx-auto mb-4" src="https://download.logo.wine/logo/Uber/Uber-Logo.wine.png" alt="Logo" />
+        <img className="w-24 mx-auto mb-2" src="../public/logo.png" alt="Logo" />
         <h3 className="text-2xl font-semibold text-center text-gray-800">Create an Account</h3>
         
         <form onSubmit={submitHandler} className="flex flex-col mt-5">

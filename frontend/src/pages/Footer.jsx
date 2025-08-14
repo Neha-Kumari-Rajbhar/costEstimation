@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         </div>
         <div className="text-sm bg-black py-2 w-full mt-3 overflow-hidden">
-          © 2024 MyE-learningWebsite. All rights reserved.
+          © 2024 cost-estimation. All rights reserved.
         </div>
       
     </footer>

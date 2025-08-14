@@ -65,6 +65,62 @@ module.exports.getUserprofile=async(req,res,next)=>{
     res.status(200).json(req.user)
 }
 
+// Get Edit Profile Page
+
+// controllers/user.controller.js
+
+module.exports.getProfile = async (req, res) => {
+  try {
+    // req.user is already populated by auth middleware
+    const user = req.user;
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+
+  } catch (error) {
+    console.error('Get Profile Error:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+
+module.exports.getEditProfile = async (req, res, next) => {
+  const user = await userModel.findById(req.user._id);
+  if (!user) return res.status(404).json({ message: 'User not found' });
+  res.status(200).json(user);
+};
+
+
+
+
+// Update Profile
+module.exports.updateUserProfile = async (req, res, next) => {
+    try {
+       const userId = req.user._id;
+       
+       const {firstname , lastname , email, profilePic}=req.body // profilePic is extracted here
+
+       const updatedUser=await userModel.findByIdAndUpdate(
+        userId,
+        {
+            'fullname.firstname':firstname,
+            'fullname.lastname':lastname || ' ',
+            email,
+            profilePic, // This is where the profilePic (URL or base64) will be saved
+        },
+        {new:true}
+       )
+
+       res.status(200).json(updatedUser)
+    } catch (error) {
+        res.status(500).json({message:'Error updating profile',error:error.message})
+    }
+  
+};
+
 module.exports.logoutUser=async(req,res,next)=>{
     
     const token=req.cookie?.token || req.headers.authorization?.split(' ')[1]

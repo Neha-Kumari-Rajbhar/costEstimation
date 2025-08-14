@@ -7,6 +7,9 @@ import Hero from './pages/Hero'
 import UserProtectWrapper from './pages/UserProtectWrapper'
 import UserLogout from './pages/UserLogout'
 import SearchButtonSection from './pages/SearchButtonSection'
+import SearchHistory from './pages/SearchHistory'
+import Profile from './pages/Profile'
+// import EditProfile from './pages/EditProfile'
 
 
 const App = () => {
@@ -35,6 +38,17 @@ const App = () => {
           </UserProtectWrapper>
         }/>
 
+        <Route path='/search-history' element={
+          <UserProtectWrapper>
+            <SearchHistory/>
+          </UserProtectWrapper>
+        }/>
+   
+        <Route path="/profile" element={
+          <UserProtectWrapper>
+            <Profile />
+          </UserProtectWrapper>
+        } />
 
       </Routes>
     </div>

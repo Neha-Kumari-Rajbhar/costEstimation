@@ -6,11 +6,15 @@ const cors=require('cors')
 const connectToDb=require('./database/db')
 const cookieParser=require('cookie-parser')
 const userRoutes=require('./routes/user.route')
+const geminiRoutes = require("./routes/geminiRoutes"); 
 
 
 
 connectToDb()
 const app=express()
+
+// app.use(cors({origin: 'http://localhost:5173', // Your frontend origin
+//   credentials: true}))
 
 app.use(cors())
 app.use(express.json())
@@ -21,5 +25,8 @@ app.get('/',(req,res)=>{
     res.send('Hello world')
 })
 app.use('/users',userRoutes)
+
+// API Routes
+app.use('/api', geminiRoutes);
 
 module.exports=app

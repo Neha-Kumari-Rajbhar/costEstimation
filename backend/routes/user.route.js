@@ -20,7 +20,16 @@ userController.loginUser
 )
 
 //profile
-router.get('/profile',authMiddleware.authUser,userController.getUserprofile)
+ router.get('/profile',authMiddleware.authUser,userController.getProfile)
+
+//edit profile
+router.get('/profile/edit', authMiddleware.authUser, userController.getEditProfile)
+router.post('/profile/edit', authMiddleware.authUser, userController.updateUserProfile)
+// router.put('/profile/update', authMiddleware.authUser, userController.updateProfile);
+
+
+//logout
 router.get('/logout',authMiddleware.authUser,userController.logoutUser)
 
+// router.get('/search',authMiddleware.authUser,userController.getUserprofile)
 module.exports=router

@@ -25,8 +25,10 @@ const userSchema=new mongoose.Schema({
         require:true,
         select:false
     },
-    socketId:{
+    profilePic:{
         type:String,
+        // default:'../frontend\public\profile-icon.png'
+        default:'/profile-icon.png'
     }
 })
 

@@ -69,9 +69,9 @@ const Hero = () => {
  
       {/* Logo */}
       <motion.img 
-        className='relative z-10 w-16 mt-8 sm:w-20 md:w-24 lg:w-28'
-        src='https://download.logo.wine/logo/Uber/Uber-Logo.wine.png'
-        alt='Uber Logo'
+        className='relative z-10 w-32 mt-8 sm:w-20 md:w-24 lg:w-28'
+        src='../public/logo.png'
+        alt='Logo'
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -86,13 +86,13 @@ const Hero = () => {
         transition={{ duration: 1.2, delay: 0.5 }}
         whileHover={{ scale: 1.02 }}
       >
-        <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold'>Compare Prices & Services Instantly</h2>
-        <p className="text-gray-300 mt-6 text-sm">
+        <h2 className='text-4xl sm:text-4xl md:text-5xl font-bold leading-none tracking-tighter'>Compare Prices & Services Instantly</h2>
+        <p className="text-gray-300 mt-6 text-xs">
           Search for a product or service and get the best price comparisons from top websites in seconds!
         </p>
         <MotionLink 
           to="/login"
-          className='flex items-center justify-center bg-blue-600 text-white w-full py-3 text-lg rounded mt-5 transition-all hover:scale-105 hover:bg-blue-700'
+          className='flex items-center justify-center bg-blue-600 text-white w-full py-3 text-base rounded mt-5 transition-all hover:scale-105 hover:bg-blue-700'
           whileHover={{ scale: 1.05 }}
         >
           Start Comparing

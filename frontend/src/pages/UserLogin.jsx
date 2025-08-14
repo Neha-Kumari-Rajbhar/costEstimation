@@ -13,13 +13,15 @@ const UserLogin = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    
     const userData = { email, password };
 
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData);
     if (response.status === 200) {
       const data = response.data;
-      setUser(data.user);
+      
       localStorage.setItem('token', data.token);
+      setUser(data.user);
       navigate('/home');
     }
 
@@ -54,7 +56,7 @@ const UserLogin = () => {
         
         {/* Right Login Section */}
         <div className="flex-1 flex flex-col justify-center p-6 md:p-10">
-          <img className="w-24 mx-auto mb-4" src="https://download.logo.wine/logo/Uber/Uber-Logo.wine.png" alt="Logo" />
+          <img className="w-24 mx-auto mb-4" src="../public/logo.png" alt="Logo" />
           <h3 className="text-2xl font-semibold text-center text-gray-800 ">Welcome Back</h3>
           <form onSubmit={submitHandler} className="flex flex-col">
             
